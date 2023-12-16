@@ -233,4 +233,17 @@ In this task, we establish relationships between tables to form a star schema, e
 
 By establishing these relationships, we create a well-defined star schema.
 
+# Task 3- Creating Measures Table
+
+To effectively manage measures in our data model and keep it organized, we'll create a separate table named "Measures Table." This helps in easy navigation and provides visibility in the Query Editor for debugging and troubleshooting purposes. There are two ways to create this table, and we recommend the latter approach using the Power Query Editor.
+
+## Steps:
+
+1. **Access Model View:**
+2. **Create Measures Table:**
+   - Select "Enter Data" from the Home tab of the ribbon.
+  
+3. **Name the New Blank Table and Load the table:**
+   - Name the new blank table as "Measures Table and click load."
+
 
