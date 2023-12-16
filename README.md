@@ -154,4 +154,83 @@ Task 5 involves importing and transforming customer data from the Customers fold
 
 5. **Rename Columns:**
    
+write overvoiew
+
+## Task 1: Creating a Continuous Date Table and Adding Time Intelligence Columns
+
+## Overview
+
+Task 1 focuses on preparing a continuous date table in Power BI to leverage time intelligence functions effectively. This involves creating a date table spanning from the earliest 'Order Date' to the latest 'Shipping Date' within the Orders table. Additionally, DAX formulas will be used to add essential time-related columns to enhance time analysis capabilities.
+
+## Steps
+
+ 1. **Create a Continuous Date Table:**
+
+- Utilize a DAX formula to generate a continuous date table covering the entire time period of your data.
+
+```dax
+DateTable = DateTable = CALENDAR(MIN(Orders[Order Date]),MAX(Orders[Shipping Date]))
+```
+
+ 2.**Add Time Intelligence Columns:**
+
+Once the date table is created, enhance it by adding specific time intelligence columns.
+
+```dax
+"Day of Week" = Day of Week = WEEKDAY([Date])
+
+"Month Number" = MONTH([Date])
+
+"Month Name" = FORMAT([Date], "MMMM")
+
+"Quarter" = QUARTER([Date])
+
+"Year" = YEAR([Date])
+
+"Start of Year" = STARTOFYEAR([Date])
+
+"Start of Quarter" = STARTOFQUARTER([Date])
+
+"Start of Month" = STARTOFMONTH([Date])
+
+"Start of Week" = STARTOFWEEK([Date])
+```
+
+## Task 2: Creating Relationships for Star Schema
+
+In this task, we establish relationships between tables to form a star schema, ensuring that the relationships are one-to-many with a single filter direction from the one side to the many side. The primary focus is on the "Orders" table, which serves as the central fact table.
+
+### Relationships:
+
+1. **Orders[product_code] to Products[product_code]**
+   - Type: One-to-Many
+   - Direction: Orders to Products
+
+2. **Orders[Store Code] to Stores[store code]**
+   - Type: One-to-Many
+   - Direction: Orders to Stores
+
+3. **Orders[User ID] to Customers[User UUID]**
+   - Type: One-to-Many
+   - Direction: Orders to Customers
+
+4. **Orders[Order Date] to Date[date] (Active Relationship)**
+   - Type: One-to-Many
+   - Direction: Orders to Date
+   - Active Relationship: Yes
+
+5. **Orders[Shipping Date] to Date[date]**
+   - Type: One-to-Many
+   - Direction: Orders to Date
+
+### Notes:
+
+- The "Orders[Order Date] to Date[date]" relationship is set as the active relationship. This indicates that it will be used as the default relationship when querying the data, providing a clear and consistent date reference for analysis.
+
+- The one-to-many relationships ensure that each record in the "Orders" table relates to one and only one record in the connected tables, maintaining data integrity.
+
+- The single filter direction from the "Orders" table to the related tables ensures a straightforward flow of filtering criteria, simplifying queries and enhancing the efficiency of the star schema.
+
+By establishing these relationships, we create a well-defined star schema.
+
 
