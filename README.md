@@ -245,5 +245,94 @@ To effectively manage measures in our data model and keep it organized, we'll cr
   
 3. **Name the New Blank Table and Load the table:**
    - Name the new blank table as "Measures Table and click load."
+  
+## Task 4-  Create key measures
+### Key Measures
+
+#### Total Orders
+- **Description:** Counts the number of orders in the Orders table.
+- **Formula:**
+  ```DAX
+  Total Orders = COUNTROWS(Orders)
+   ```
+#### Total Revenue
+- **Description:** Multiplies the quantity of products in each order by the sale price of the products for each row and then sums the result.
+- **Formula:**
+  ```DAX
+  Total Revenue = SUMX(Orders, Orders[Product Quantity] * RELATED(Products[Sale_Price]))
+  ```
+  ### Total Profit
+- **Description:** For each row, subtracts the cost price from the sale price of the products and then multiplies the result by the product quantity. Sums the result for all rows.
+- **Formula:**
+  ```DAX
+  Total Profit = SUMX(Orders, (Orders[Product Quantity] * RELATED(Products[Sale_Price]) - RELATED(Products[Cost_Price])))
+  ### Total Customers
+- **Description:** Counts the number of unique customers in the Orders table. This measure dynamically adjusts as the Orders table is filtered.
+- **Formula:**
+  ```DAX
+  Total Customers = CALCULATE(COUNTROWS(VALUES(Orders[CustomerID])))
+  ### Total Quantity
+- **Description:** Counts the number of items sold in the Orders table.
+- **Formula:**
+  ```DAX
+  Total Quantity = SUM(Orders[Product Quantity])
+  ### Profit YTD
+- **Description:** Calculates the total profit for the current year.
+- **Formula:**
+  ```DAX
+  Profit YTD = TOTALYTD([Total Profit], Orders[Order Date])
+### Revenue YTD
+- **Description:** Calculates the total revenue for the current year.
+- **Formula:**
+  ```DAX
+  Revenue YTD = TOTALYTD([Total Revenue], Orders[Order Date])
+  # Data Analysis Task 5 README
+
+## Overview
+
+This repository contains code and instructions for Task 5, focusing on creating hierarchies and calculated columns to enhance data analysis within a report. The task involves the creation of two hierarchies - one for dates and another for geography.
+
+## Date Hierarchy
+
+To facilitate drill-down in line charts, a date hierarchy with the following levels has been implemented:
+
+- Start of Year
+- Start of Quarter
+- Start of Month
+- Start of Week
+- Date
+
+## Calculated Column: Country
+
+A new calculated column named **Country** has been added to the Stores table. This column assigns a full country name to each row based on the Stores[Country Code] column, following the scheme:
+
+- GB: United Kingdom
+- US: United States
+- DE: Germany
+
+## Calculated Column: Geography
+
+Another calculated column, **Geography**, has been introduced in the Stores table. This column generates a full geography name for each row based on the Stores[Country Region] and Stores[Country] columns, separated by a comma and a space.
+
+## Data Category Assignment
+
+To ensure accurate representation, the following columns have been assigned appropriate data categories:
+
+- **World Region**: Continent
+- **Country**: Country
+- **Country Region**: State or Province
+
+## Geography Hierarchy
+
+For comprehensive geography-related analysis, a hierarchy with the following levels has been created:
+
+1. World Region
+2. Country
+3. Country Region
+
+## Usage
+
+1. Clone this repository to your local machine.
+2. Follow the instructions in the associated documentation or script to implement the hierarchies and calculated columns in your data analysis project.
 
 
