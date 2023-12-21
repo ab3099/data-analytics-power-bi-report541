@@ -420,7 +420,9 @@ Seconndly, Milestone 5 focuses on Creating Visuals for the Customer-Level report
   - Users can filter the page by selecting a specific year using the slicer.
   - Apply the "Between" slicer style to provide a range-based selection.
 <img width="326" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/474fa4d2-43ed-4cc5-a1c8-7c8989bc1e4d">
+
 #### Customer Detail Report Page: overview
+
 <img width="594" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/d7c4c84d-8dca-45de-b947-d4ec49e95183">
 
 ## Milestone 6: 
