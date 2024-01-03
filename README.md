@@ -539,11 +539,45 @@ Here we will connect the server  to vs code in order to run sql queries on the d
   **username**: maya
   **password** : AiCore127!
 
-#### 2. Save 
-  
-Enter the following detai
----
+#### 2.  SQL Query to Retrieve Table Names and Save as CSV
 
+```sql
+SELECT 
+    *
+FROM
+    information_schema.tables
+
+
+and save the result to a csv file
+```
+
+#### 3. SQL Query to Retrieve Column Names and Save as CSV
+- Example: dim_date table 
+ ```sql
+SELECT 
+    *
+FROM
+    dim_date
+
+
+and save the result to a csv file
+``` 
+## Milestone 10
+### Overview 
+Answer questions about the data by running sql queries. Save the queries in sql format whist the query result in CVV format (e.g, question_1.csv- question_1.sql)
+
+### Steps
+#### 1. How many staff are there in all of the UK stores?
+ ```sql
+SELECT SUM(*) as TotalStaffintheUK
+FROM
+    dim_stores
+WHERE
+    country_region = 'UK'
+
+
+and save the result to a csv file
+``` 
 
 *Note: Customize the styling and formatting of visuals for a clean and professional look. Ensure that the visuals provide valuable insights into customer-level analysis.*
 
