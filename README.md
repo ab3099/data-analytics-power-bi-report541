@@ -1,18 +1,37 @@
 # Data Analytics Power BI Report
 
-## Task 1: Importing and Preparing Data
+1. [Importing and Organising Data](#Importing-Organising-Data)
+   - [Overview](#Overview)
+   - [Prerequisites](#prerequisites)
+1.1 [Milestone 1](#milestone-1)
+1.2 [Milestone 2](#milestone-2)
+  -  [Cleaning and Transforming Product data](#cleaning-and-transforming-product-data)   
+   - [Importing Stores Data from Azure Blob Storage](#importing-stores-data-from-azure-blob-storage)
+   - [Importing and Transforming Customer Data](#importing-and-transforming-customer-data)
+1.3 [Milestone 3](#milestone-3)
+
+2. [Report Set Up](#report-set-up)
+   2.1 [Milestone 4 & 5](#Milestone-4&5)
+   2.2 [Milestone 6](#milestone-6)
+   2.3 [Milestone 7](#milestone-7)
+   2.4 [Milestone 8](#milestone-8)
+
+   
+## Importing and Preparing Data
 
 ### Overview:
 
-The first phase of our project focuses on data loading and preparation within Power BI. The objective is to connect to an Azure SQL Database, a Microsoft Azure Storage account, and web-hosted CSV files to import the necessary components of the dataset. Once the data is imported, the next steps involve cleaning and organizing the data. This includes removing unnecessary columns, splitting date-time details, and ensuring overall data consistency.
+The first phase of our project, which includes Milestones 1 to 4, focuses on data loading and preparation within Power BI. The objective is to connect to an Azure SQL Database, a Microsoft Azure Storage account, and web-hosted CSV files to import the necessary components of the dataset. Once the data is imported, the next steps involve cleaning and organizing the data. This includes removing unnecessary columns, splitting date-time details, and ensuring overall data consistency.
 
 The final step in this phase involves renaming the columns to align with Power BI conventions. This crucial step sets the stage for subsequent parts of the project, ensuring a standardized and organized dataset for effective reporting and analysis.
+
+### Prerequisites:
+- Power BI desktop 
 
 ### Milestone 1:
 Connect to the Azure SQL Database, import the "orders_powerbi" table into Power BI, and perform necessary data cleaning and formatting.
 
-### Prerequisites:
-- Azure SQL Database credentials:
+### Azure SQL Database credentials:
   - Server Name: `my-server-maya.database.windows.net`
   - Database Name: `orders_db`
   - Username: `maya`
@@ -47,7 +66,8 @@ Connect to the Azure SQL Database, import the "orders_powerbi" table into Power 
    - Rename [store_code] to [Store Code]
 
 
-## Milestone 2: Part 1- Cleaning and Transforming Products Data
+## Milestone 2:
+1. Cleaning and Transforming Products Data
 
 ### Overview:
 
@@ -85,7 +105,8 @@ In Milestone 2, the focus is **first** on cleaning and transforming the data wit
 #### Example Renaming:
    - Rename [cost_price] to [Cost Price]
 
-## Milestone 2: Part 2- Importing Stores Data from Azure Blob Storage
+## Milestone 2:
+2. Importing Stores Data from Azure Blob Storage
 
 ### Overview:
 
@@ -128,11 +149,12 @@ Here we focus on importing the Stores table from Azure Blob Storage into Power B
    - Rename [store_type] to [Store Type]
 
 
-## Milestone 2: Part 3- Importing and Transforming Customer Data
+## Milestone 2: 
+3. Importing and Transforming Customer Data
 
 ### Overview:
 
-Task 5 involves importing and transforming customer data from the Customers folder. This task requires downloading the Customers.zip file, unzipping it locally, and then importing the data into Power BI. The data is organized into three CSV files, one for each region, with the same column format.
+This task involves importing and transforming customer data from the Customers folder. This task requires downloading the Customers.zip file, unzipping it locally, and then importing the data into Power BI. The data is organized into three CSV files, one for each region, with the same column format.
 
 ### Steps:
 
@@ -284,13 +306,7 @@ To effectively manage measures in our data model and keep it organized, we'll cr
   ```DAX
   Revenue YTD = TOTALYTD([Total Revenue], Orders[Order Date])
 
-## Milestone 3: Create the Data Model
-
-## Overview
-
-In creating hierarchies and calculated columns to enhance data analysis within a report. The task involves the creation of two hierarchies - one for dates and another for geography.
-
-## Date Hierarchy
+#### 5. Date Hierarchy
 
 To facilitate drill-down in line charts, a date hierarchy with the following levels has been implemented:
 
@@ -300,7 +316,8 @@ To facilitate drill-down in line charts, a date hierarchy with the following lev
 - Start of Week
 - Date
 
-## Calculated Column: Country
+#### 6 Calculated Columns
+### 6.1 Country
 
 A new calculated column named **Country** has been added to the Stores table. This column assigns a full country name to each row based on the Stores[Country Code] column, following the scheme:
 
@@ -308,11 +325,11 @@ A new calculated column named **Country** has been added to the Stores table. Th
 - US: United States
 - DE: Germany
 
-## Calculated Column: Geography
+#### 6.2 Geography
 
-Another calculated column, **Geography**, has been introduced in the Stores table. This column generates a full geography name for each row based on the Stores[Country Region] and Stores[Country] columns, separated by a comma and a space.
+calculated column, **Geography**, has been introduced in the Stores table. This column generates a full geography name for each row based on the Stores[Country Region] and Stores[Country] columns, separated by a comma and a space.
 
-## Data Category Assignment
+#### 7. Data Category Assignment
 
 To ensure accurate representation, the following columns have been assigned appropriate data categories:
 
@@ -320,27 +337,28 @@ To ensure accurate representation, the following columns have been assigned appr
 - **Country**: Country
 - **Country Region**: State or Province
 
-## Geography Hierarchy
+#### 8. Geography Hierarchy
 
-For comprehensive geography-related analysis, a hierarchy with the following levels has been created:
+A hierarchy with the following levels has been created:
 
 1. World Region
 2. Country
 3. Country Region
+
    
+## Report Set Up
+In the second stage of our report, we will set up the report by creating and formatting the Executive Summary, Customer Detail, Product Detail, and Store Map pages. 
 
-## Usage
 
-1. Clone this repository to your local machine.
-2. Follow the instructions in the associated documentation or script to implement the hierarchies and calculated columns in your data analysis project.
+## Milestone 4 and 5: 
+Report set up and Customer-Level Analysis Report
 
-## Milestone 4 and 5: Setting up report and Customer-Level Analysis Report
 ### Overview
 Here first (Milestone 4), we will create the essential report pages- **Executive Summary, Customer Detail, Product Detail, Stores Map**- and add a navigation sidebar to facilate movement between pages. 
 Seconndly, Milestone 5 focuses on Creating Visuals for the Customer-Level report page.  
 
 ### Steps
-### 1 Design Card Visuals
+### 1. Design Card Visuals
 
 - Create two rectangles and arrange them in the top left corner of the report page. These will serve as backgrounds for the card visuals.
 
