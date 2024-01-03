@@ -524,7 +524,24 @@ In this milestone, the goal is to create an Executive Summary Page providing a h
 
 ---
 
+## Milestone 9
+### Overview
+Here we will connect the server  to vs code in order to run sql queries on the dataset. 
 
+### Prerequisites
+- SQL Tools extension
+#### 1. Create server connection
+- click on new connection
+- select pgadmin
+- enter the following details
+  **service address**: powerbi-data-analytics-server.postgres.database.azure.com
+  **database name**: order-db
+  **username**: maya
+  **password** : AiCore127!
+
+#### 2. Save 
+  
+Enter the following detai
 ---
 
 
