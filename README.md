@@ -567,7 +567,7 @@ and save the result to a csv file
 Answer questions about the data by running sql queries. Save the queries in sql format whist the query result in CVV format (e.g, question_1.csv- question_1.sql)
 
 ### Steps
-#### 1. How many staff are there in all of the UK stores?
+#### 1. Determine how many staff are there in all of the UK stores
  ```sql
 SELECT SUM(*) as TotalStaffintheUK
 FROM
@@ -578,6 +578,28 @@ WHERE
 
 and save the result to a csv file
 ``` 
+#### 2 Determine which month in 2022 has had the highest revenue. 
+
+## Query: Find the Month with Highest Revenue in 2022
+
+```sql
+SELECT 
+    d.date,
+    month_name AS Month,
+    year,
+    SUM(country_region.sale_price) AS TotalRevenue
+FROM 
+    dim_date d
+INNER JOIN 
+    country_region ON d.date = country_region.dates
+WHERE
+    year = 2022
+GROUP BY
+    d.date, month_name, year
+ORDER BY
+    TotalRevenue DESC
+LIMIT 1;
+
 
 *Note: Customize the styling and formatting of visuals for a clean and professional look. Ensure that the visuals provide valuable insights into customer-level analysis.*
 
