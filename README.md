@@ -524,6 +524,53 @@ In this milestone, the goal is to create an Executive Summary Page providing a h
 
 ---
 
+## Milestone 7: Product Detail Page
+
+### Overview
+
+In Milestone 7, our focus is on creating a comprehensive Product Detail Page to meet the request from the product team. The objective is to provide a detailed analysis of the performance of products within our inventory, with the added functionality of filtering by both product and region.
+## Steps
+#### 1. Gauges Setup
+
+1. **Add Gauges**:
+   - Incorporate a set of three gauges into your Power BI report.
+   - Each gauge should represent the current-quarter performance of Orders, Revenue, and Profit.
+
+2. **Measures Table:**
+   - Define DAX measures for Orders, Revenue, and Profit.
+   - Establish DAX measures for quarterly targets for each metric.
+
+3. **Gauge Filters:**
+   - Create three gauge filters.
+   - Assign the DAX measures to the corresponding filters.
+   - Set the maximum value of each gauge to the quarterly target.
+
+4. **Conditional Formatting:**
+   - Apply conditional formatting to the callout value in each gauge.
+   - Display the number in red if the target is not met, and black otherwise.
+   - Adjust colors according to your preferred color scheme.
+     
+#### 2. **Placeholder Shapes for Filter Cards:**
+   - To the left of the gauges, add two rectangle shapes as placeholders for filter cards.
+   - Use a color in keeping with the theme, and ensure that the combined space roughly equals one of the gauges.
+   - The values for these placeholders will be sorted out later, once the slicer panel is added.
+#### 3. **Area Chart of Revenue by Product Category:**
+   - Introduce a new area chart to the page.
+   - Configure the chart with the following fields:
+     - X axis: Dates[Start of Quarter]
+     - Y axis values: Total Revenue
+     - Legend: Products[Category]
+#### 4. Add Top products table
+- copy the top customer table from the Customer Detail page
+- Include the following in fields:
+  Product Description
+Total Revenue
+Total Customers
+Total Orders
+Profit per Order
+
+
+     
 ## Milestone 9
 ### Overview
 Here we will connect the server  to vs code in order to run sql queries on the dataset. 
