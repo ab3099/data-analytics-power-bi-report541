@@ -632,7 +632,7 @@ SELECT
     d.date,
     month_name AS Month,
     year,
-    SUM(country_region.sale_price) AS "Total Revenue"
+    SUM(country_region.sale_price * country_region.product_quantity) AS "Total Revenue"
 FROM 
     dim_date d
 INNER JOIN 
