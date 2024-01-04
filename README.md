@@ -616,25 +616,23 @@ Answer questions about the data by running sql queries. Save the queries in sql 
 ### Steps
 #### 1. Determine how many staff are there in all of the UK stores
  ```sql
-SELECT SUM(*) as TotalStaffintheUK
+SELECT SUM(staff_numbers) as "Total Staff in the UK"
 FROM
-    dim_stores
+   dim_store
 WHERE
-    country_region = 'UK'
+   country = 'UK'
+```
+**Result**: 
+<img width="161" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/1ae5d101-2db3-4012-b26d-a59551e51fcc">
 
-
-and save the result to a csv file
-``` 
-#### 2 Determine which month in 2022 has had the highest revenue. 
-
-## Query: Find the Month with Highest Revenue in 2022
+#### 2. Determine which month in 2022 has had the highest revenue. 
 
 ```sql
 SELECT 
     d.date,
     month_name AS Month,
     year,
-    SUM(country_region.sale_price) AS TotalRevenue
+    SUM(country_region.sale_price) AS "Total Revenue"
 FROM 
     dim_date d
 INNER JOIN 
@@ -644,12 +642,35 @@ WHERE
 GROUP BY
     d.date, month_name, year
 ORDER BY
-    TotalRevenue DESC
+    "Total Revenue" DESC
 LIMIT 1;
+```
+**Result**: 
+<img width="332" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/47ea712a-4f6c-4dcf-90b9-bc53f814b887">
 
-
-*Note: Customize the styling and formatting of visuals for a clean and professional look. Ensure that the visuals provide valuable insights into customer-level analysis.*
-
+#### 3.Determine which German store type had the highest total revenue for 2022?
+SELECT 
+    dd.year,
+    cr.country,
+    SUM(cr.sale_price * cr.product_quantity) AS "Total Revenue",
+    ds.store_type
+FROM 
+    dim_date dd
+INNER JOIN 
+    country_region cr ON dd.date = cr.dates
+INNER JOIN
+    dim_store ds ON cr.country = ds.country
+WHERE
+    cr.country = 'Germany' AND
+    dd.year = 2022
+GROUP BY
+    dd.year, cr.country, ds.store_type
+ORDER BY
+    "Total Revenue" DESC
+LIMIT 1;
+``
+**Result**: 
+<img width="431" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/48c7928b-ac07-48eb-a83f-c4531e5bfad6">
 
 
 
