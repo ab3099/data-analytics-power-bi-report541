@@ -3,20 +3,20 @@
 1. [Importing and Organising Data](#Importing-Organising-Data)
    - [Overview](#Overview)
    - [Prerequisites](#prerequisites)
-2. [Milestone 1](#milestone-1)
-3.  [Milestone 2](#milestone-2)
+a. [Milestone 1](#milestone-1)
+b.  [Milestone 2](#milestone-2)
   -  [Cleaning and Transforming Product data](#cleaning-and-transforming-product-data)   
    - [Importing Stores Data from Azure Blob Storage](#importing-stores-data-from-azure-blob-storage)
    - [Importing and Transforming Customer Data](#importing-and-transforming-customer-data)
-4. [Milestone 3](#milestone-3)
+c. [Milestone 3](#milestone-3)
 
 5. [Report Set Up](#report-set-up)
    - [Overview](#Overview)
    
-6. [Milestone 4 & 5](#Milestone-4&5)
-7. [Milestone 6](#milestone-6)
-8. [Milestone 7](#milestone-7)
-9. [Milestone 8](#milestone-8)
+a. [Milestone 4 & 5](#Milestone-4&5)
+b. [Milestone 6](#milestone-6)
+c. [Milestone 7](#milestone-7)
+d. [Milestone 8](#milestone-8)
 
    
 ## Importing and Preparing Data
