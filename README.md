@@ -350,8 +350,11 @@ A hierarchy with the following levels has been created:
 
    
 ## Report Set Up
+### Overview
 In the second stage of our report, we will set up the report by creating and formatting the Executive Summary, Customer Detail, Product Detail, and Store Map pages. 
 
+### Preerequisites 
+- Power BI desktop
 
 ## Milestone 4 and 5: 
 Report set up and Customer-Level Analysis Report
@@ -454,20 +457,17 @@ In this milestone, the goal is to create an Executive Summary Page providing a h
 #### 1. Visual Components
 
 1.1 Create Card Visuals
-
 - Copy a grouped card visual from the Customer Detail page to the Executive Summary page.
 - Duplicate it two more times.
 - Arrange the three cards to span about half of the width of the page.
 
 1.2 Assign Measures
-
 - Assign the following measures to the respective cards:
   - **Card 1:** Total Revenue
   - **Card 2:** Total Orders
   - **Card 3:** Total Profit
 
 1.3 Formatting
-
 - Use the Format > Callout Value pane to ensure consistent decimal places:
   - For Total Revenue and Total Profit cards, set a maximum of 2 decimal places.
   - For the Total Orders card, limit to 1 decimal place.
@@ -482,7 +482,6 @@ In this milestone, the goal is to create an Executive Summary Page providing a h
 <img width="322" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/913ac2f9-e477-43dc-8a68-2631f5a7294c">
 
 ### 3. Add Donut Charts for Total Revenue Breakdown
-
 - Add a pair of donut charts to the right of the cards at the top of the page.
   - **Donut Chart 1:** Total Revenue by Store Country
   - **Donut Chart 2:** Total Revenue by Store Type
@@ -490,7 +489,6 @@ In this milestone, the goal is to create an Executive Summary Page providing a h
 <img width="307" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/438075e2-6804-4ceb-a790-de4b972521b8">
 
 ### 4. Bar Chart for Number of Orders by Product Category
-
 - Copy the "Total Customers by Product Category" donut chart from the Customer Detail page.
 - In the on-object Build a visual pane, change the visual type to a Clustered Bar Chart.
 - Change the X-axis field from "Total Customers" to "Total Orders."
@@ -499,14 +497,13 @@ In this milestone, the goal is to create an Executive Summary Page providing a h
 <img width="310" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/22f93ce4-7ec2-4646-bb4a-e8fd6bd97c14">
 
 ### 5. KPIs for Quarterly Metrics
-
-- Create measures for the following:
+5.1 Create measures for the following:
   - Previous Quarter Profit
   - Previous Quarter Revenue
   - Previous Quarter Orders
   - Targets (equal to 5% growth in each measure compared to the previous quarter)
 
-- Add new KPIs for Quarterly Revenue, Orders, and Profit:
+5.2 Add new KPIs for Quarterly Revenue, Orders, and Profit:
   - The Value field should be Total Revenue, Total Orders, and Total Profit, respectively.
   - The Trend Axis should be Start of Quarter.
   - The Target should be Target Revenue, Target Orders, and Target Profit, respectively.
@@ -516,7 +513,7 @@ In this milestone, the goal is to create an Executive Summary Page providing a h
     - Transparency: 15%
   - Format the Callout Value so that it only shows to 1 decimal place.
 
-- Duplicate each KPI card two more times, setting appropriate values for the Profit and Orders cards.
+5.3 Duplicate each KPI card two more times, setting appropriate values for the Profit and Orders cards.
 
 <img width="367" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/773f89b2-12fc-468f-8b90-76d87432c431">
 
@@ -529,7 +526,9 @@ In this milestone, the goal is to create an Executive Summary Page providing a h
 ### Overview
 
 In Milestone 7, our focus is on creating a comprehensive Product Detail Page to meet the request from the product team. The objective is to provide a detailed analysis of the performance of products within our inventory, with the added functionality of filtering by both product and region.
+
 ## Steps
+
 #### 1. Add Gauges representing the current-quarter performance of Orders, Revenue, and Profit against their respecitve quartely target 
 
 1.1 Measures:
@@ -539,7 +538,8 @@ In Milestone 7, our focus is on creating a comprehensive Product Detail Page to 
      Current Quarter Profit = TOTALQTD([Total Profit], 'Date'[Date])
      Current Quarter Revenue = TOTALQTD([Total Revenue], 'Date'[Date])
          ```
-     - Define DAX measures for the quarterly target: 10% quarter-on-quarter growth in all three metrics.
+
+- Define DAX measures for the quarterly target: 10% quarter-on-quarter growth in all three metrics.
         ```DAX
        Orders Quarterly Target = [Current Quarter Orders] * 1.10
        Profit Quarterly Target = [Current Quarter Profit] * 1.10
@@ -554,12 +554,14 @@ In Milestone 7, our focus is on creating a comprehensive Product Detail Page to 
 1.3 Conditional Formatting:
    - Apply conditional formatting to the callout value in each gauge.
    - Display the number in red if the target is not met, and black otherwise.
+     
 1.4 Example Guage Visuals:
      <img width="494" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/2b265362-3eca-4f98-8e91-5f9cb362a9df">
 
 #### 2. **Placeholder Shapes for Filter Cards:**
    - To the left of the gauges, add two rectangle shapes as placeholders for filter cards.
    - Use a color in keeping with the theme, and ensure that the combined space roughly equals one of the gauges.
+     
 #### 3. **Area Chart of Revenue by Product Category:**
 - Introduce a new area chart to the page.
  - Configure the chart with the following fields:
@@ -637,6 +639,9 @@ Legend should be Products[Category]
 
    - Slicer Bar Closed
     <img width="32" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/66f89778-af03-4343-8865-f713e8b32f59">
+    
+#### 6. Product Detail page: Overview
+<img width="544" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/29f6c281-5f1f-4a63-afac-a81b3baeb7c8">
 
 ## Milestone 8
 ## Overview
@@ -665,6 +670,7 @@ In response to the specific needs of regional managers, Milestone 8 focuses on c
      
 1.5 Map visual:
 <img width="465" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/81622c31-78b1-426f-a384-1b70f875cb47">
+
 #### 2. Add country slicer
 2.1 Add a Slicer:
    - Insert a slicer above the map on the Stores Map Page.
@@ -677,34 +683,99 @@ In response to the specific needs of regional managers, Milestone 8 focuses on c
 
 2.3 Slicer visual:
       <img width="445" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/4faa82fd-231e-4908-8983-a608afe78ab6">
-#### 3. Create Drillthrough Page:**
-3.1 Create a new page named "Stores Drillthrough and Configure Page Information:
+      
+#### 3. Stores Map Page: Overview
+<img width="539" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/1ff582f2-0028-44a2-9675-ba6b1328498d">
+
+#### 4. Create Drillthrough Page:
+4.1 Create a new page named "Stores Drillthrough and Configure Page Information:
    - Open the Format pane and expand the Page Information tab.
    - Set the Page type to Drillthrough.
    - Set "Drill through when" to Used as category.
    - Set "Drill through from" to `Country Region`.
 
-3.2 Create Necessary Measures:
+4.2 Create Necessary Measures:
    - Ensure you already have measures for Profit YTD and Revenue YTD.
    - Create measures for Profit Goal and Revenue Goal, representing a 20% increase on the previous year's year-to-date profit or revenue at the current point in the year.
-     
-
-4. **Add Visuals to Drillthrough Page:**
-   - Add the following visuals to the drillthrough page:
+     ```DAX
+     Profit Goal = CALCULATE([Profit YTD], SAMEPERIODLASTYEAR('Date'[Date])) * 1.2
+     Revenue Goal = CALCULATE([Revenue YTD], SAMEPERIODLASTYEAR('Date'[Date])) * 1.2
+     ```
+4.4 Add the following visuals Visuals to Drillthrough Page:
      - Table showing top 5 products with columns: Description, Profit YTD, Total Orders, Total Revenue.
      - Column chart showing Total Orders by product category for the store.
      - Gauges for Profit YTD against a profit target of 20% year-on-year growth.
      - Card visual showing the currently selected store.
-
-5. **Ensure Visual Coherence:**
-   - Adjust formatting and positioning to ensure a coherent and user-friendly visual presentation.
      
-## Milestone 9
+4.5 Drillthrough Page
+<img width="566" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/ecf90a86-6518-40fa-a10c-37546470f2e4">
+
+#### 5 Create Stores Tooltip Page:
+5.1 Add a new page named "Storea Tooltip" to your Power BI report.
+    - Copy over the profit gauge visual from the main report page to the "Custom Tooltip" page.
+
+5.2 Set Tooltip Configuration:
+   - Open the Format pane for the profit gauge visual on the "Custom Tooltip" page.
+   - Set the tooltip to the "Custom Tooltip" page you have created.
+
+5.3 Enhance User Interaction:
+   - Ensure that the custom tooltip provides insightful information on each store's year-to-date profit against the profit target.
+   - Verify that users can easily access this information by hovering the mouse over a store on the map.
+5.4  Stores Tooltip Page
+     <img width="678" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/f328edc4-219b-4910-89ba-2d0bd4acbea5">
+
+## Milestone 9: Cross Filtering and Navigation
+
 ### Overview
-Here we will connect the server  to vs code in order to run sql queries on the dataset. 
+ Milestone 9 focuses on configuring interactions between visuals on various pages to enhance the user experience on refining the user experience. Secondly, this task also involves completing the navigation bar initiated earlier in the project. 
+
+#### 1. Configure Interactions: Executive Summary Page
+  - Navigate to the Edit Interactions view in the Format tab of the ribbon.
+   - Set the following interactions:
+     - Product Category bar chart and Top 10 Products table should not filter the card visuals or KPIs.
+
+#### 2. Configure Interactions: Customer Detail Page
+   - Top 20 Customers table should not filter any of the other visuals.
+   - Total Customers by Product Donut Chart should not affect the Customers line graph.
+   - Total Customers by Country donut chart should cross-filter Total Customers by Product Donut Chart.
+
+#### 3. Configure Interactions: Product Detail Page
+   - Orders vs. Profitability scatter graph should not affect any other visuals.
+   - Top 10 Products table should not affect any other visuals.
+#### 4. Add Navigation Buttons for Individual Report Pages
+4.1 Add Navigation Buttons:**
+   - On the Executive Summary page, in the sidebar, add four new blank buttons.
+   - In the Format > Button Style pane, set the Apply settings to field to Default.
+   - For each button, set the icon to the relevant white png in the Icon tab.
+  
+4.2 Configure Hover Effects:
+   - For each button, go to Format > Button Style > Apply settings to and set it to On Hover.
+   - Select the alternative colorway of the relevant button under the Icon tab.
+
+4.3 Configure Page Navigation:
+   - For each button, turn on the Action format option.
+   - Select the type as Page navigation.
+   - Choose the correct page under Destination.
+
+4.4 Group Buttons:
+   - Group the buttons together for better organization and management.
+
+4.5 Copy Buttons Across Pages:
+   - Copy the grouped buttons from the Executive Summary page to the other report pages.
+
+4.6 Navigation Buttons: 
+<img width="44" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/656d2b60-621c-40db-8eb8-c2e72810d086">
+
+## Milestone 10:  SQL Queries 
+### Overview
+
+In the final milestone, we expand our data analysis toolkit by incorporating SQL queries. This addition is crucial for scenarios where clients may not have direct access to specialized visualization tools like Power BI. SQL queries provide a versatile means to extract and disseminate key data insights, ensuring accessibility for a broader audience.
 
 ### Prerequisites
-- SQL Tools extension
+- Visual Studio Code 
+- Extension: SQLTools PostgreSQL/Cockroach Driver
+  
+### Steps
 #### 1. Create server connection
 - click on new connection
 - select pgadmin
@@ -715,7 +786,6 @@ Here we will connect the server  to vs code in order to run sql queries on the d
   **password** : AiCore127!
 
 #### 2.  SQL Query to Retrieve Table Names and Save as CSV
-
 ```sql
 SELECT 
     *
@@ -725,7 +795,6 @@ FROM
 
 and save the result to a csv file
 ```
-
 #### 3. SQL Query to Retrieve Column Names and Save as CSV
 - Example: dim_date table 
  ```sql
@@ -734,15 +803,9 @@ SELECT
 FROM
     dim_date
 
-
-and save the result to a csv file
+and save the result to a csv file for user's reference.
 ``` 
-## Milestone 10
-### Overview 
-Answer questions about the data by running sql queries. Save the queries in sql format whist the query result in CVV format (e.g, question_1.csv- question_1.sql)
-
-### Steps
-#### 1. Determine how many staff are there in all of the UK stores
+#### 4. Determine how many staff are there in all of the UK stores
  ```sql
 SELECT SUM(staff_numbers) as "Total Staff in the UK"
 FROM
@@ -751,9 +814,10 @@ WHERE
    country = 'UK'
 ```
 **Result**: 
-<img width="161" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/1ae5d101-2db3-4012-b26d-a59551e51fcc">
+"Total Staff in the UK"
+"13273"
 
-#### 2. Determine which month in 2022 has had the highest revenue. 
+#### 5. Determine which month in 2022 has had the highest revenue. 
 
 ```sql
 SELECT 
@@ -774,9 +838,11 @@ ORDER BY
 LIMIT 1;
 ```
 **Result**: 
-<img width="332" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/47ea712a-4f6c-4dcf-90b9-bc53f814b887">
+"Month","Year","Total Revenue"
+"Sep","2022",116231.35999999996
 
-#### 3.Determine which German store type had the highest total revenue for 2022?
+#### 6. Determine which German store type had the highest total revenue for 2022?
+```sql
 SELECT 
     dd.year,
     cr.country,
@@ -796,9 +862,65 @@ GROUP BY
 ORDER BY
     "Total Revenue" DESC
 LIMIT 1;
-``
+```
 **Result**: 
-<img width="431" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/48c7928b-ac07-48eb-a83f-c4531e5bfad6">
+"year","country","Total Revenue","store_type"
+"2022","Germany",28195956.66000709,"Local"
 
+#### 7. Create a view where the rows are the store types and the columns are the total sales, percentage of total sales and the count of orders
+```sql
+-- Create a view where the rows are the store types and the columns are the total sales, percentage of total sales and the count of orders
+CREATE VIEW "Sale Store" AS
+SELECT
+    ds.store_type AS "Store Type",
+    SUM(dp.sale_price) AS "Total Sales",
+    COUNT(o.product_quantity) AS "Order Count",
+     (SUM(dp.sale_price) / SUM(SUM(dp.sale_price)) OVER ()) * 100 AS "Percentage  Total Sales"
+FROM 
+    orders  o
+INNER JOIN
+    dim_store ds ON o.store_code = ds.store_code
+LEFT JOIN
+    dim_product dp ON o.product_code = dp.product_code
+GROUP BY
+    ds.store_type
 
+--  Query the table to see result
+SELECT * FROM  "Sale Store"
+```
+**Result**: 
+"Store Type","Total Sales","Order Count","Percentage  Total Sales"
+"Local",1044744.6099997698,"78409",65.10146402933637
+"Mall Kiosk",175513.9399999992,"13142",10.936849390933508
+"Outlet",126171.62000000606,"9207",7.8621675597400795
+"Super Store",257946.1999999851,"19276",16.07347393810123
+"Web Portal",417.9700000000001,"43",0.026045081888814645
+
+#### 8.Determine  which product category generated the most profit for the "Wiltshire, UK" region in 2021 
+```sql
+SELECT
+    dp.category,
+    ds.full_region,
+    dim_date.year,
+    SUM(cr.product_quantity * (cr.sale_price - cr.cost_price)) AS TotalProfit
+FROM
+    country_region cr
+INNER JOIN
+    dim_product dp ON cr.sale_price = dp.sale_price  
+INNER JOIN
+    dim_store ds ON cr.country = ds.country
+INNER JOIN
+    dim_date ON cr.dates = dim_date.date
+WHERE
+    ds.full_region = 'Wiltshire, UK' AND
+    dim_date.year = 2021
+GROUP BY
+    dp.category, ds.full_region, dim_date.year
+ORDER BY
+    TotalProfit DESC
+LIMIT 1;
+```
+**Result**: 
+"category","full_region","year","totalprofit"
+"homeware","Wiltshire, UK","2021",57730086.83648027
 
