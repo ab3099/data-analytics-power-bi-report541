@@ -1,22 +1,23 @@
 # Data Analytics Power BI Report
 
 1. [Importing and Organising Data](#Importing-Organising-Data)
-   - [Overview](#Overview)
-   - [Prerequisites](#prerequisites)
-a. [Milestone 1](#milestone-1)
-b.  [Milestone 2](#milestone-2)
-  -  [Cleaning and Transforming Product data](#cleaning-and-transforming-product-data)   
-   - [Importing Stores Data from Azure Blob Storage](#importing-stores-data-from-azure-blob-storage)
-   - [Importing and Transforming Customer Data](#importing-and-transforming-customer-data)
-c. [Milestone 3](#milestone-3)
-
+      - [Overview](#Overview)
+      - [Prerequisites](#prerequisites)
+2. [Milestone 1](#milestone-1)
+3.  [Milestone 2](#milestone-2)  
+      3.1 [Cleaning and Transforming Product data](#cleaning-and-transforming-product-data)   
+      3.2 [Importing Stores Data from Azure Blob Storage](#importing-stores-data-from-azure-blob-storage)
+      3.3 [Importing and Transforming Customer Data](#importing-and-transforming-customer-data)
+4. [Milestone 3](#milestone-3)
 5. [Report Set Up](#report-set-up)
    - [Overview](#Overview)
-   
-a. [Milestone 4 & 5](#Milestone-4&5)
-b. [Milestone 6](#milestone-6)
-c. [Milestone 7](#milestone-7)
-d. [Milestone 8](#milestone-8)
+   -  [Prerequisites](#prerequisites)
+6. [Milestone 4 & 5](#Milestone-4&5)
+7. [Milestone 6](#milestone-6)
+8. [Milestone 7](#milestone-7)
+9. [Milestone 8](#milestone-8)
+10. [Milestone 9](#milestone-9)
+11. [Milestone 10](#milestone-10)
 
    
 ## Importing and Preparing Data
@@ -450,22 +451,22 @@ Seconndly, Milestone 5 focuses on Creating Visuals for the Customer-Level report
 
 In this milestone, the goal is to create an Executive Summary Page providing a high-level overview of the company's performance for C-suite executives. The page includes key visuals to quickly convey insights and compare outcomes against key targets.
 ## Steps 
-### 1. Visual Components
+#### 1. Visual Components
 
-### 1.1 Create Card Visuals
+1.1 Create Card Visuals
 
 - Copy a grouped card visual from the Customer Detail page to the Executive Summary page.
 - Duplicate it two more times.
 - Arrange the three cards to span about half of the width of the page.
 
-### 1.2 Assign Measures
+1.2 Assign Measures
 
 - Assign the following measures to the respective cards:
   - **Card 1:** Total Revenue
   - **Card 2:** Total Orders
   - **Card 3:** Total Profit
 
-### 1.3 Formatting
+1.3 Formatting
 
 - Use the Format > Callout Value pane to ensure consistent decimal places:
   - For Total Revenue and Total Profit cards, set a maximum of 2 decimal places.
@@ -487,6 +488,7 @@ In this milestone, the goal is to create an Executive Summary Page providing a h
   - **Donut Chart 2:** Total Revenue by Store Type
 - Copy formatting from the Customer Detail page to maintain a consistent look.
 <img width="307" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/438075e2-6804-4ceb-a790-de4b972521b8">
+
 ### 4. Bar Chart for Number of Orders by Product Category
 
 - Copy the "Total Customers by Product Category" donut chart from the Customer Detail page.
@@ -522,54 +524,180 @@ In this milestone, the goal is to create an Executive Summary Page providing a h
 
 <img width="596" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/536fb1e3-1325-4a69-b45e-74c60ff202fb">
 
----
-
 ## Milestone 7: Product Detail Page
 
 ### Overview
 
 In Milestone 7, our focus is on creating a comprehensive Product Detail Page to meet the request from the product team. The objective is to provide a detailed analysis of the performance of products within our inventory, with the added functionality of filtering by both product and region.
 ## Steps
-#### 1. Gauges Setup
+#### 1. Add Gauges representing the current-quarter performance of Orders, Revenue, and Profit against their respecitve quartely target 
 
-1. **Add Gauges**:
-   - Incorporate a set of three gauges into your Power BI report.
-   - Each gauge should represent the current-quarter performance of Orders, Revenue, and Profit.
+1.1 Measures:
+   - Define DAX measures for the current-quarter performance of Orders, Revenue and Profit.
+       ```DAX
+     Current Quarter Orders = TOTALQTD([Total Orders], 'Date'[Date])
+     Current Quarter Profit = TOTALQTD([Total Profit], 'Date'[Date])
+     Current Quarter Revenue = TOTALQTD([Total Revenue], 'Date'[Date])
+         ```
+     - Define DAX measures for the quarterly target: 10% quarter-on-quarter growth in all three metrics.
+        ```DAX
+       Orders Quarterly Target = [Current Quarter Orders] * 1.10
+       Profit Quarterly Target = [Current Quarter Profit] * 1.10
+       Revenue Quarterly Target = [Current Quarter Revenue] * 1.10
+       ```
 
-2. **Measures Table:**
-   - Define DAX measures for Orders, Revenue, and Profit.
-   - Establish DAX measures for quarterly targets for each metric.
-
-3. **Gauge Filters:**
+1.2 Gauge Filters:
    - Create three gauge filters.
-   - Assign the DAX measures to the corresponding filters.
+   - Assign the current-quarter performance metrics to the Value Field. 
    - Set the maximum value of each gauge to the quarterly target.
 
-4. **Conditional Formatting:**
+1.3 Conditional Formatting:
    - Apply conditional formatting to the callout value in each gauge.
    - Display the number in red if the target is not met, and black otherwise.
-   - Adjust colors according to your preferred color scheme.
-     
+1.4 Example Guage Visuals:
+     <img width="494" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/2b265362-3eca-4f98-8e91-5f9cb362a9df">
+
 #### 2. **Placeholder Shapes for Filter Cards:**
    - To the left of the gauges, add two rectangle shapes as placeholders for filter cards.
    - Use a color in keeping with the theme, and ensure that the combined space roughly equals one of the gauges.
-   - The values for these placeholders will be sorted out later, once the slicer panel is added.
 #### 3. **Area Chart of Revenue by Product Category:**
-   - Introduce a new area chart to the page.
-   - Configure the chart with the following fields:
+- Introduce a new area chart to the page.
+ - Configure the chart with the following fields:
      - X axis: Dates[Start of Quarter]
      - Y axis values: Total Revenue
      - Legend: Products[Category]
+- Example visual from report: 
+       <img width="355" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/15f0a406-7c92-4957-93a7-fbc2893cbc35">
+
 #### 4. Add Top products table
-- copy the top customer table from the Customer Detail page
+- Copy the top customer table from the Customer Detail page
 - Include the following in fields:
   Product Description
-Total Revenue
-Total Customers
-Total Orders
-Profit per Order
+      - Total Revenue
+      - Total Customers
+      - Total Orders
+      - Profit per Order
+- Example visual from report:
+<img width="337" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/75c779be-a563-4064-8a4f-d42f01e87ae5">
 
+#### 5. Scatter Graph Quantity sold VS Profit per Item
+- Create a new calculated column called `[Profit per Item]`in the'Products' table
+  
+```DAX
+Profit per Item = [Sale Price] - [Cost Price]
+```
+- Add a new Scatter chart to the page, and configure it as follows:
+Values should be Products[Description]
+X-Axis should be Products[Profit per Item]
+Y-Axis should be Products[Total Quantity]
+Legend should be Products[Category]
+- Example Visual from report:
+<img width="289" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/b1717812-a544-45a5-a93f-a51c30a23d0a">
 
+#### 6. Create a Slicer Toolbar 
+ 6.1 Add Button to Navigation Bar:
+   - Add a new blank button to the top of your navigation bar.
+   - Set the icon type to Custom in the Format pane.
+   - Choose "Filter_icon.png" as the icon image.
+   - Set the tooltip text to "Open Slicer Panel."
+
+6.2 Add Toolbar Shape:
+   - Add a new rectangle shape in the same color as your navigation bar.
+   - Dimensions should be the same height as the page and 3-5X the width of the navigation bar.
+   - Bring it to the top of the stacking order using the Selection pane.
+
+6.3 Add Slicers:
+   - Add two new slicers: one set to `Products[Category]` and the other to `Stores[Country]`.
+   - Change slicer titles to "Product Category" and "Country," respectively.
+   - Set both slicers to Vertical List style.
+   - Allow multiple selections in the Product Category slicer and single selection in the Country slicer.
+   - Configure the Country slicer to include a "Select All" option.
+   - Ensure neat formatting that fits your report style.
+
+6.4 Group Slicers with Toolbar Shape:
+   - In the Selection pane, group the slicers with your slicer toolbar shape.
+
+6.5 Add Back Button:
+   - Add a new button and select the Back button type.
+   - Position it sensibly, e.g., in the top-right corner of the toolbar.
+   - In the Selection pane, drag the back button into the group with the slicers and toolbar shape.
+
+6.6 Create Bookmarks:
+   - Open the Bookmarks pane and add two new bookmarks: "Slicer Bar Closed" and "Slicer Bar Open."
+   - Ensure Data is unchecked for both bookmarks to prevent altering slicer states when opening and closing the toolbar.
+
+6.7. Assign Actions to Buttons:
+   - Open the Format pane and turn on the Action setting for both the Filter button and the Back button.
+   - Set the Type to Bookmark for each button and select the appropriate bookmark.
+
+6.8 Testing:
+   - Test your buttons and slicers (Ctrl-Click for button functionality during design in Power BI Desktop).
+   - Slicer Bar Open
+     <img width="83" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/87897557-c581-4951-b802-bf59d7d56648">
+
+   - Slicer Bar Closed
+    <img width="32" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/66f89778-af03-4343-8865-f713e8b32f59">
+
+## Milestone 8
+## Overview
+
+In response to the specific needs of regional managers, Milestone 8 focuses on creating a dedicated Stores Map Page. This page is designed to allow regional managers to easily check on the stores under their control. The goal is to provide them with insights into the most profitable stores they are responsible for, as well as those on track to reach their quarterly profit and revenue targets. 
+
+#### 1. Map Visual
+1.1 Add a Map Visual:
+   - Navigate to the Stores Map Page in your Power BI report.
+   - Add a new map visual that occupies the majority of the page, leaving a narrow band at the top for a slicer.
+   - Adjust the style of the map in the Format pane according to your satisfaction.
+   - Ensure "Show Labels" is set to On for clear visibility.
+
+1.2 Configure Map Controls:
+   - Set the following controls for the map:
+      - **Auto-Zoom:** On
+      - **Zoom Buttons:** Off
+      - **Lasso Button:** Off
+
+1.3 Assign Data Fields:
+   - Assign the Geography hierarchy to the Location field of the map.
+   - Assign the ProfitYTD field to the Bubble Size field for a comprehensive representation.
+
+1.4 Optimize Visual Appearance:
+   - Fine-tune the visual appearance to align with the preferences and requirements of the regional managers.
+     
+1.5 Map visual:
+<img width="465" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/81622c31-78b1-426f-a384-1b70f875cb47">
+#### 2. Add country slicer
+2.1 Add a Slicer:
+   - Insert a slicer above the map on the Stores Map Page.
+   - Set the slicer field to `Stores[Country]`.
+
+2.2 Configure Slicer Style:
+   - In the Format section, set the slicer style as Tile.
+   - Adjust the Selection settings to Multi-select with Ctrl/Cmd.
+   - Enable the "Select All" option in the slicer.
+
+2.3 Slicer visual:
+      <img width="445" alt="image" src="https://github.com/ab3099/data-analytics-power-bi-report541/assets/148353384/4faa82fd-231e-4908-8983-a608afe78ab6">
+#### 3. Create Drillthrough Page:**
+3.1 Create a new page named "Stores Drillthrough and Configure Page Information:
+   - Open the Format pane and expand the Page Information tab.
+   - Set the Page type to Drillthrough.
+   - Set "Drill through when" to Used as category.
+   - Set "Drill through from" to `Country Region`.
+
+3.2 Create Necessary Measures:
+   - Ensure you already have measures for Profit YTD and Revenue YTD.
+   - Create measures for Profit Goal and Revenue Goal, representing a 20% increase on the previous year's year-to-date profit or revenue at the current point in the year.
+     
+
+4. **Add Visuals to Drillthrough Page:**
+   - Add the following visuals to the drillthrough page:
+     - Table showing top 5 products with columns: Description, Profit YTD, Total Orders, Total Revenue.
+     - Column chart showing Total Orders by product category for the store.
+     - Gauges for Profit YTD against a profit target of 20% year-on-year growth.
+     - Card visual showing the currently selected store.
+
+5. **Ensure Visual Coherence:**
+   - Adjust formatting and positioning to ensure a coherent and user-friendly visual presentation.
      
 ## Milestone 9
 ### Overview
